@@ -104,12 +104,6 @@ export default function LoginPage() {
             Forgot Password?
           </a>
         </div>
-        <hr className="my-4" />
-        <div className="text-center">
-          <Button className="bg-green-500 hover:bg-green-600 text-white">
-            Create New Account
-          </Button>
-        </div>
       </div>
       {showSuccess && (
         <div 
